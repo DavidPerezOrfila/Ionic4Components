@@ -1,0 +1,21 @@
+<app-header titulo="Input y forms"></app-header>
+
+<ion-content>
+    <ion-list>
+        <ion-list-header>
+            <ion-label>Nombre: {{ nombre || 'No hay nombre' }}</ion-label>
+        </ion-list-header>
+        <ion-item>
+            <ion-label floating>Nombre</ion-label>
+            <ion-input type="text" [(ngModel)]="nombre"></ion-input>
+        </ion-item>
+    </ion-list>
+    <form action="" #form="ngForm" (ngSubmit)="onSubmitTemplate()">
+        <ion-list>
+            <ion-item>
+                <ion-label floating>Email</ion-label>
+                <ion-input type="email" [(ngModel)]="usuario.email" name="email"></ion-input>
+            </ion-item>
+        </ion-list>
+    </form>
+</ion-content>
