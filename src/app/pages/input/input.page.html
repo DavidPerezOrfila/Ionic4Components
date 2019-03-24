@@ -10,12 +10,20 @@
             <ion-input type="text" [(ngModel)]="nombre"></ion-input>
         </ion-item>
     </ion-list>
-    <form action="" #form="ngForm" (ngSubmit)="onSubmitTemplate()">
+    <form #formulario="ngForm" (ngSubmit)="onSubmitTemplate()">
         <ion-list>
+            <ion-list-header>
+                <ion-label>Formulario template: Valido {{ formulario.valid }}</ion-label>
+            </ion-list-header>
             <ion-item>
                 <ion-label floating>Email</ion-label>
-                <ion-input type="email" [(ngModel)]="usuario.email" name="email"></ion-input>
+                <ion-input type="email" [(ngModel)]="usuario.email" name="email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label floating>Password</ion-label>
+                <ion-input type="password" [(ngModel)]="usuario.password" name="password" required></ion-input>
             </ion-item>
         </ion-list>
+        <ion-button expand="full" type="submit" [disabled]="formulario.invalid">Enviar</ion-button>
     </form>
 </ion-content>
